@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Submissions</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📋 All Submissions</h1>
+    <% if (submissions.length === 0) { %>
+      <p>No submissions yet!</p>
+    <% } else { %>
+      <ul>
+        <% submissions.forEach(function(s){ %>
+          <li>
+            <strong><%= s.name %></strong>  
+            (<%= s.email %>)  
+            <p><%= s.message %></p>
+            <small><%= s.time %></small>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+    <a href="/" class="link-btn">Back to Form</a>
+  </div>
+</body>
+</html>

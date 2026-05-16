@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Contact Form</h1>
+    <form action="/submit" method="post">
+      <label>Name:</label>
+      <input type="text" name="name" required>
+      <label>Email:</label>
+      <input type="email" name="email" required>
+      <label>Message:</label>
+      <textarea name="message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <h2>Previous Submissions</h2>
+    <ul>
+      <% submissions.forEach(function(s){ %>
+        <li>
+          <strong><%= s.name %></strong>  
+          (<%= s.email %>)  
+          <p><%= s.message %></p>
+        </li>
+      <% }) %>
+    </ul>
+    <a href="/submissions" class="link-btn">View All Submissions</a>
+  </div>
+</body>
+</html>

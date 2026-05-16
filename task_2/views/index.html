@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <script>
+    function validateForm() {
+      let name = document.forms["myForm"]["name"].value;
+      let email = document.forms["myForm"]["email"].value;
+      let age = document.forms["myForm"]["age"].value;
+      if (name == "" || email == "" || age == "") {
+        alert("❌ All fields are required!");
+        return false;
+      }
+      if (!email.includes("@")) {
+        alert("❌ Email must be valid!");
+        return false;
+      }
+      if (isNaN(age) || age <= 0) {
+        alert("❌ Age must be a positive number!");
+        return false;
+      }
+      return true;
+    }
+  </script>
+  </head>
+  <body style="font-family:Arial; background:#f9f9f9; padding:20px;">
+    <h2 style="color:blue; text-align:center;">Student Registration Form</h2>
+    <form name="myForm" action="/submit" method="POST"
+      onsubmit="return validateForm()"
+      style="border:1px solid #ccc; padding:20px; width:300px; margin:auto; background:#fff;">
+      <label style="display:block; margin-bottom:8px;">Name:</label>
+      <input type="text" name="name"
+        style="width:100%; padding:5px; margin-bottom:10px;">
+      <label style="display:block; margin-bottom:8px;">Email:</label>
+      <input type="text" name="email"
+        style="width:100%; padding:5px; margin-bottom:10px;">
+      <label style="display:block; margin-bottom:8px;">Age:</label>
+      <input type="number" name="age"
+        style="width:100%; padding:5px; margin-bottom:10px;">
+      <label style="display:block; margin-bottom:8px;">Message:</label>
+      <textarea name="message"
+        style="width:100%; padding:5px; margin-bottom:10px;"></textarea>
+      <button type="submit"
+        style="background:green; color:white; padding:10px; border:none; width:100%;">Submit</button>
+    </form>
+    <p style="text-align:center; margin-top:20px;">
+      <a href="/submissions" style="color:blue;">View All Submissions</a>
+    </p>
+  </body>
+</html>

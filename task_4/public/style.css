@@ -1,0 +1,22 @@
+body {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  font-family: 'Segoe UI', sans-serif;
+}
+.card {
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.8s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.strength {
+  height: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  transition: width 0.3s ease-in-out;
+}
+.weak { background-color: red; width: 33%; }
+.medium { background-color: orange; width: 66%; }
+.strong { background-color: green; width: 100%; }

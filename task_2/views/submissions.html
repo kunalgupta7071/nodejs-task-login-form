@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Submissions</title>
+    <script>
+    async function loadSubmissions() {
+      let res = await fetch("/api/submissions");
+      let data = await res.json();
+      let list = document.getElementById("list");
+      list.innerHTML = "";
+      data.forEach((item, i) => {
+        let li = document.createElement("li");
+        li.innerHTML = `<b>${item.name}</b> (${item.age} yrs) - ${item.email} <br> ${item.message}`;
+        li.style.marginBottom = "15px";
+        list.appendChild(li);
+      });
+    }
+    window.onload = loadSubmissions;
+  </script>
+  </head>
+  <body style="font-family:Arial; background:#f0f8ff; padding:20px;">
+    <h2 style="color:purple; text-align:center;">📋 All Submissions</h2>
+    <ul id="list" style="list-style:none; padding:0;"></ul>
+    <p style="text-align:center;">
+      <a href="/" style="color:blue;">Go Back to Form</a>
+    </p>
+  </body>
+</html>
